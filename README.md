@@ -1,6 +1,8 @@
 To-Do List
 
-Voir 📌 Description
+[VOIR](https://bloommethod.github.io/liste-de-taches-faire-2026-novembre/)
+
+📌 Description
 
 Une application simple de gestion de tâches développée avec HTML, CSS et JavaScript.
 
