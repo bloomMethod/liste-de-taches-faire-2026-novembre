@@ -1,6 +1,7 @@
 To-Do List
 
-[VOIR](https://bloommethod.github.io/liste-de-taches-faire-2026-novembre/)
+🌐 **Voir** 
+[Visiter](https://bloommethod.github.io/liste-de-taches-faire-2026-novembre/)
 
 📌 Description
 
