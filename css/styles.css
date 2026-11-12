@@ -1,0 +1,170 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: grey;
+}
+
+body .div-content {
+  width: 600px;
+  margin: 0px auto;
+}
+
+body .div-content form .hidden {
+  display: none;
+}
+
+body .div-content .div-lista {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  padding: 40px;
+  /* background-color: rgba(41, 41, 125, 0.686); */
+  background-color: rgba(37, 36, 36, 0.693);
+  margin-top: 50px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 8px black;
+}
+
+body .div-content .div-lista h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+body .div-content .div-lista input {
+  display: inline-block;
+  padding: 5px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  &:focus {
+    border: 1px solid rgb(0, 255, 242);
+  }
+}
+
+body .div-content .div-lista .lista-tareas {
+  margin: 20px 0px;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body .div-content .div-lista .lista-tareas .red {
+  background-color: red;
+}
+body .div-content .div-lista .lista-tareas .green {
+  background-color: green;
+}
+body .div-content .div-lista .lista-tareas div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(101, 87, 87, 0.753);
+  width: 100%;
+  margin: 10px 0px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgb(0, 255, 242);
+  span {
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 80px;
+    font-style: italic;
+  }
+  button {
+    color: white;
+    width: 80px;
+    border: none;
+    padding: 2px 5px;
+    border-radius: 10px;
+    background-color: rgba(117, 117, 117, 0.718);
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.197);
+    transition: transform 0.2s ease;
+    &:hover {
+      transform: translateY(-2px);
+      background-color: #3fa3cd;
+    }
+  }
+}
+
+body .div-content .div-lista .botones {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  button {
+    color: white;
+    /* width: 80px; */
+    border: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+    background-color: rgba(169, 180, 12, 0.953);
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.197);
+    transition: transform 0.2s ease;
+    font-size: 16px;
+    &:hover {
+      transform: translateY(-2px);
+      background-color: #3fa3cd;
+    }
+  }
+  p {
+    color: white;
+    background-color: rgb(0, 0, 0);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.197);
+  }
+}
+
+body .div-content .div-lista .botones p {
+  display: none;
+}
+body .div-content .div-lista .botones .active {
+  display: inline-block;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    .div-content {
+      width: 100%;
+      padding: 0px 20px;
+      .div-lista {
+        width: 100%;
+        margin-top: 120px;
+        .lista-tareas {
+          div {
+            button {
+              font-size: 12px;
+              width: auto;
+            }
+          }
+        }
+        .botones {
+          button {
+            font-size: 14px;
+            /* width: 150px; */
+            padding: 5px 8px;
+          }
+          p {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}
