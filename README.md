@@ -62,3 +62,5 @@ La création et l'affichage d'éléments HTML dynamiques.
 La manipulation des données avec localStorage.
 
 La mise à jour du nombre total de tâches.
+
+Mise à jour de l'app 17-11-2026
