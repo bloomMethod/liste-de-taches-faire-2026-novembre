@@ -148,20 +148,23 @@ body .div-content .div-lista .botones .active {
         margin-top: 120px;
         .lista-tareas {
           div {
+            padding: 20px 14px;
             button {
+              display: inline-block;
               font-size: 12px;
+              padding: 4px 10px;
               width: auto;
             }
           }
         }
         .botones {
           button {
-            font-size: 14px;
+            font-size: 10px;
             /* width: 150px; */
-            padding: 5px 8px;
+            padding: 4px 5px;
           }
           p {
-            font-size: 13px;
+            font-size: 10px;
           }
         }
       }
