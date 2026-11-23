@@ -11,27 +11,27 @@ L'application propose une interface dans laquelle l'utilisateur peut saisir des 
 
 🚀 Fonctionnalités
 
-Ajouter de nouvelles tâches.
+- Ajouter de nouvelles tâches.
 
-Supprimer une tâche individuellement.
+- Supprimer une tâche individuellement.
 
-Effacer toutes les tâches.
+- Effacer toutes les tâches.
 
-Marquer une tâche comme terminée ou à faire.
+- Marquer une tâche comme terminée ou à faire.
 
-Conserver les tâches grâce à LocalStorage.
+- Conserver les tâches grâce à LocalStorage.
 
 🛠️ Technologies utilisées
 
-HTML5 : structure de l'application.
+- HTML5 : structure de l'application.
 
-CSS3 : mise en forme et design responsive.
+- CSS3 : mise en forme et design responsive.
 
-Sass (SCSS) : organisation et gestion des styles.
+- Sass (SCSS) : organisation et gestion des styles.
 
-JavaScript : gestion des tâches et interaction avec l'utilisateur.
+- JavaScript : gestion des tâches et interaction avec l'utilisateur.
 
-LocalStorage : sauvegarde des tâches dans le navigateur.
+- LocalStorage : sauvegarde des tâches dans le navigateur.
 
 📂 Structure du projet
 
@@ -75,15 +75,15 @@ Organisation Sass
 
 Les styles sont divisés en plusieurs dossiers pour rendre le code plus clair et plus facile à maintenir.
 
-abstracts/ : contient les variables et les mixins réutilisables.
+- abstracts/ : contient les variables et les mixins réutilisables.
 
-base/ : contient le reset CSS et les styles généraux.
+- base/ : contient le reset CSS et les styles généraux.
 
-components/ : contient les styles des différents composants de l'application.
+- components/ : contient les styles des différents composants de l'application.
 
-layout/ : contient les règles de mise en page responsive.
+- layout/ : contient les règles de mise en page responsive.
 
-styles.scss : fichier principal qui importe les différents modules SCSS avec @use.
+- styles.scss : fichier principal qui importe les différents modules SCSS avec @use.
 
 Le fichier styles.scss compile les différents fichiers SCSS dans css/styles.css, qui est ensuite utilisé par le fichier HTML.
 
