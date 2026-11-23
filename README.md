@@ -5,49 +5,121 @@ To-Do List
 
 📌 Description
 
-Une application simple de gestion de tâches développée avec HTML, CSS et JavaScript.
-
-Ce projet permet de créer une liste de tâches à partir d'une interface minimaliste. Il a été réalisé dans le but de pratiquer la manipulation du DOM, la gestion des événements et l'utilisation de localStorage en JavaScript.
+Une application web simple permettant de gérer une liste de tâches. Les tâches sont enregistrées dans le navigateur grâce à LocalStorage, ce qui permet de les retrouver après avoir fermé ou actualisé la page.
 
 L'application propose une interface dans laquelle l'utilisateur peut saisir des tâches, les ajouter à une liste et consulter le nombre total de tâches.
 
 🚀 Fonctionnalités
 
-Champ de saisie pour ajouter une nouvelle tâche.
+Ajouter de nouvelles tâches.
 
-Bouton pour ajouter une tâche à la liste.
+Supprimer une tâche individuellement.
 
-Affichage des tâches dans une liste.
+Effacer toutes les tâches.
 
-Bouton pour supprimer toutes les tâches.
+Marquer une tâche comme terminée ou à faire.
 
-Affichage du nombre total de tâches.
-
-Utilisation de LocalStorage pour la gestion des données locales.
+Conserver les tâches grâce à LocalStorage.
 
 🛠️ Technologies utilisées
 
-HTML5 — Structure de l'application.
+HTML5 : structure de l'application.
 
-CSS3 — Mise en page et design.
+CSS3 : mise en forme et design responsive.
 
-JavaScript — Manipulation du DOM et gestion des interactions.
+Sass (SCSS) : organisation et gestion des styles.
 
-LocalStorage — Stockage des données dans le navigateur.
+JavaScript : gestion des tâches et interaction avec l'utilisateur.
+
+LocalStorage : sauvegarde des tâches dans le navigateur.
 
 📂 Structure du projet
 
-Lista-de-Tareas/ │ ├── index-listaTareas.html │ ├── styles.css │ └── js/ └── listaTareasconLocalStorage.js
+Le projet est organisé de manière à séparer les différents éléments de l'application et à faciliter la maintenance du code.
+
+liste-de-taches-faire-2026-novembre/
+│
+├── index.html
+│
+├── css/
+│   └── styles.css
+│
+├── scss/
+│   ├── abstracts/
+│   │   ├── _variables.scss
+│   │   ├── _mixins.scss
+│   │   └── _index.scss
+│   │
+│   ├── base/
+│   │   ├── _reset.scss
+│   │   └── _base.scss
+│   │
+│   ├── components/
+│   │   ├── _panel.scss
+│   │   └── _lista-tareas.scss
+│   │
+│   ├── layout/
+│   │   └── _responsive.scss
+│   │
+│   └── styles.scss
+│
+├── js/
+│   └── listaTareasconLocalStorage.js
+│
+├── package.json
+├── package-lock.json
+├── .gitignore
+└── README.md
+
+Organisation Sass
+
+Les styles sont divisés en plusieurs dossiers pour rendre le code plus clair et plus facile à maintenir.
+
+abstracts/ : contient les variables et les mixins réutilisables.
+
+base/ : contient le reset CSS et les styles généraux.
+
+components/ : contient les styles des différents composants de l'application.
+
+layout/ : contient les règles de mise en page responsive.
+
+styles.scss : fichier principal qui importe les différents modules SCSS avec @use.
+
+Le fichier styles.scss compile les différents fichiers SCSS dans css/styles.css, qui est ensuite utilisé par le fichier HTML.
 
 💻 Installation
 
-Clone le dépôt :
+Installation et utilisation
 
-git clone URL_DU_DEPOT
+1. Cloner le dépôt
 
-Ouvre le dossier du projet.
+git clone https://github.com/bloomMethod/liste-de-taches-faire-2026-novembre.git
 
-Lance le fichier index-listaTareas.html dans ton navigateur.
+2. Ouvrir le dossier du projet
+
+cd liste-de-taches-faire-2026-novembre
+
+3. Installer les dépendances
+
+Node.js et npm doivent être installés sur votre ordinateur.
+
+npm install
+
+4. Compiler les fichiers SCSS
+
+Pour compiler les fichiers SCSS une seule fois :
+
+npm run sass
+
+Pour compiler automatiquement les modifications à chaque sauvegarde :
+
+npm run watch
+
+Laissez le terminal ouvert pendant que vous travaillez sur les fichiers SCSS. Pour arrêter la surveillance, utilisez Ctrl + C.
+
+5. Ouvrir l'application
+
+Ouvrez le fichier index.html dans votre navigateur.
 
 👨‍💻 Auteur
 
@@ -64,3 +136,4 @@ La manipulation des données avec localStorage.
 La mise à jour du nombre total de tâches.
 
 Mise à jour de l'app 17-11-2026
+Mise à jour de l'app 23-11-2026
