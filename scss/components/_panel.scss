@@ -1,0 +1,59 @@
+@use "../abstracts/index";
+
+.div-lista {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 600px;
+      padding: 40px;
+      background-color: index.$color-panel;
+      margin-top: 50px;
+      border-radius: index.$radio-panel;
+      box-shadow: index.$sombra-panel;
+
+      //titulo
+
+      h1 {
+        color: index.$color-texto;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      input {
+        display: inline-block;
+        padding: 5px;
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+
+        &:focus {
+          border: 1px solid index.$color-acento;
+        }
+      }
+
+      
+
+      .botones {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        button {
+          @include index.boton-estilo(rgba(169, 180, 12, 0.953));
+          padding: 5px 8px;
+          border-radius: 5px;
+          font-size: 16px;
+        }
+        p {
+          color: index.$color-texto;
+          background-color: black;
+          padding: 5px 10px;
+          border-radius: 5px;
+          box-shadow: 0px 0px 8px black;
+          display: none;
+          &.active {
+            display: inline-block;
+          }
+        }
+      }
+}

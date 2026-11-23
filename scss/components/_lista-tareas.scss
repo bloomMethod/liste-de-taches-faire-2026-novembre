@@ -1,0 +1,54 @@
+@use "../abstracts/index";
+
+// contenedor de tareas
+.lista-tareas {
+  margin: 20px 0px;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+
+  // ocultar scroll-bar
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  // Estado de tareas
+
+  .red {
+    background-color: red;
+  }
+
+  .green {
+    background-color: green;
+  }
+
+  // Cotenedor de cada tarea
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(101, 87, 87, 0.753);
+    width: 100%;
+    margin: 10px 0px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid index.$color-acento;
+
+    // Nombre de la tarea
+
+    span {
+      color: index.$color-texto;
+      text-transform: uppercase;
+      font-weight: bold;
+      width: 80px;
+      font-style: italic;
+    }
+
+    button {
+      @include index.boton-estilo(rgba(117, 117, 117, 0.718));
+      width: 80px;
+      padding: 2px 5px;
+      border-radius: 10px;
+    }
+  }
+}

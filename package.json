@@ -1,0 +1,25 @@
+{
+  "name": "lista-de-tareas",
+  "version": "1.0.0",
+  "description": "To-Do List",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass scss/styles.scss css/styles.css",
+    "watch": "sass --watch scss/styles.scss:css/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bloomMethod/liste-de-taches-faire-2026-novembre.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/bloomMethod/liste-de-taches-faire-2026-novembre/issues"
+  },
+  "homepage": "https://github.com/bloomMethod/liste-de-taches-faire-2026-novembre#readme",
+  "devDependencies": {
+    "sass": "^1.108.2"
+  }
+}

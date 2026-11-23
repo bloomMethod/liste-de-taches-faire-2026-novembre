@@ -1,0 +1,30 @@
+@media (max-width: 500px) {
+  .div-content {
+      width: 100%;
+      padding: 0px 20px;
+      .div-lista {
+        width: 100%;
+        margin-top: 120px;
+        .lista-tareas {
+          div {
+            padding: 20px 14px;
+            button {
+              display: inline-block;
+              font-size: 12px;
+              padding: 4px 10px;
+              width: auto;
+            }
+          }
+        }
+        .botones {
+          button {
+            font-size: 10px;
+            padding: 4px 5px;
+          }
+          p {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+}

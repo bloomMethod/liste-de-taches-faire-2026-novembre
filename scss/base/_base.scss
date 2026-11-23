@@ -1,0 +1,11 @@
+@use "../abstracts/index";
+
+body {
+  background-color: index.$color-fondo;
+}
+
+.div-content {
+  width: 600px;
+  margin: 0px auto;
+}
+
