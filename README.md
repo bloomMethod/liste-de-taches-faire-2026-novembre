@@ -123,17 +123,17 @@ Ouvrez le fichier index.html dans votre navigateur.
 
 👨‍💻 Auteur
 
-La sélection et la manipulation des éléments HTML avec JavaScript.
+- La sélection et la manipulation des éléments HTML avec JavaScript.
 
-La gestion des événements au clic.
+- La gestion des événements au clic.
 
-La récupération des valeurs d'un champ de saisie.
+- La récupération des valeurs d'un champ de saisie.
 
-La création et l'affichage d'éléments HTML dynamiques.
+- La création et l'affichage d'éléments HTML dynamiques.
 
-La manipulation des données avec localStorage.
+- La manipulation des données avec localStorage.
 
-La mise à jour du nombre total de tâches.
+- La mise à jour du nombre total de tâches.
 
 Mise à jour de l'app 17-11-2026
 Mise à jour de l'app 23-11-2026
