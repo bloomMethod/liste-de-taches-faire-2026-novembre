@@ -8,63 +8,78 @@ const totalContador = document.getElementById("total");
 let tasks = [];
 let nextId = 1;
 
-
-input.addEventListener("keyup", function(e){
-  if(e.key === "Enter"){
+input.addEventListener("keyup", function (e) {
+  if (e.key === "Enter") {
     agregar.click();
     input.value = "";
-  };
+  }
 });
 
-
-function addToTasks(){
+function addToTasks() {
   let task = input.value;
 
-  if(task === ""){
+  if (task === "") {
     alert("Debes insertar una tarea..");
     return;
-  }else{
+  } else {
     tasks.push({
       tarea: task,
       id: nextId,
+      done: false,
+      status: "new",
     });
     nextId++;
     input.value = "";
-  };
+  }
   renderTasks();
   saveTasks();
-};
+}
 
-function removeFromTasks(id){
-  tasks = tasks.filter(function(task){
+function removeFromTasks(id) {
+  tasks = tasks.filter(function (task) {
     return task.id !== id;
   });
   renderTasks();
   saveTasks();
-};
+}
 
 // function total(){}
 
-function clearTasks(){
+function clearTasks() {
   tasks = [];
   nextId = 1;
   renderTasks();
   saveTasks();
 }
 
-function renderTasks(){
+function updateTaskStatus(task, status) {
+  task.status = status;
+  task.done = status === "done";
+  saveTasks();
+  renderTasks();
+}
+
+function renderTasks() {
   listaTareas.innerHTML = "";
 
-  for(let i = 0; i < tasks.length; i++){
+  for (let i = 0; i < tasks.length; i++) {
     let task = tasks[i];
 
     const div = document.createElement("div");
-    const name  = document.createElement("span");
+    const name = document.createElement("span");
     const borrarTarea = document.createElement("button");
     const tareaEcha = document.createElement("button");
     const tareaPendiente = document.createElement("button");
 
     name.innerText = task.tarea;
+    if (task.status === "new") {
+      div.classList.add("grey");
+    } else if (task.status === "pending") {
+      div.classList.add("red");
+    } else if (task.status === "done") {
+      div.classList.add("green");
+    }
+
     borrarTarea.innerText = "X";
     tareaEcha.innerText = "Fait";
     tareaPendiente.innerText = "A faire";
@@ -73,62 +88,67 @@ function renderTasks(){
     div.appendChild(borrarTarea);
     div.appendChild(tareaEcha);
     div.appendChild(tareaPendiente);
+    if (task.status === "done") {
+      tareaPendiente.remove();
+    }
     listaTareas.appendChild(div);
 
-    borrarTarea.addEventListener("click", function(){
+    borrarTarea.addEventListener("click", function () {
       removeFromTasks(task.id);
     });
 
-    tareaEcha.addEventListener("click", function(){
-      div.classList.add("green");
-      tareaPendiente.remove();
+    tareaEcha.addEventListener("click", function () {
+      updateTaskStatus(task, "done");
     });
 
-    tareaPendiente.addEventListener("click", function(){
-      div.classList.add("red");
-    })
+    tareaPendiente.addEventListener("click", function () {
+      updateTaskStatus(task, "pending");
+    });
   }
 
-  if(tasks.length > 0){
+  if (tasks.length > 0) {
     totalContenedor.classList.add("active");
-  } else{
+  } else {
     totalContenedor.classList.remove("active");
   }
 
-  if(tasks.length === 1){
+  if (tasks.length === 1) {
     totalContador.innerText = " 1 tache à faire";
-  } else if ( tasks.length > 1){
+  } else if (tasks.length > 1) {
     totalContador.innerText = tasks.length + " taches à faire";
-  };
-};
+  }
+}
 renderTasks();
 
-agregar.addEventListener("click", function(){
+agregar.addEventListener("click", function () {
   addToTasks();
-})
+});
 
-borrar.addEventListener("click", function(){
+borrar.addEventListener("click", function () {
   clearTasks();
 });
 
-function saveTasks(){
+function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
-};
+}
 
-function chargeTasks(){
+function chargeTasks() {
   const data = localStorage.getItem("tasks");
 
-  if(data){
+  if (data) {
     tasks = JSON.parse(data);
-  };
+  }
   renderTasks();
 
-  if(tasks.length > 0){
-    nextId = Math.max(...tasks.map(function(task){
-      return task.id;
-    }))+ 1;
-  } else{
+  if (tasks.length > 0) {
+    nextId =
+      Math.max(
+        ...tasks.map(function (task) {
+          return task.id;
+        }),
+      ) + 1;
+  } else {
     nextId = 1;
   }
-};
+}
 chargeTasks();
