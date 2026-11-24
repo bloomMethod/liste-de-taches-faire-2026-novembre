@@ -141,6 +141,10 @@ body {
   .div-content .div-lista .lista-tareas div {
     padding: 20px 14px;
   }
+  .div-content .div-lista .lista-tareas div span {
+    width: auto;
+    font-size: 12px;
+  }
   .div-content .div-lista .lista-tareas div button {
     display: inline-block;
     font-size: 12px;
