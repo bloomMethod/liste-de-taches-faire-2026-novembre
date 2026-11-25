@@ -1,36 +1,48 @@
+// DOM ELEMENTS
 const input = document.getElementById("input");
-const listaTareas = document.querySelector(".todo__list");
-const agregar = document.getElementById("agregar");
-const borrar = document.getElementById("borrar");
-const totalContenedor = document.querySelector(".todo__total");
-const totalContador = document.getElementById("total");
+const taskList = document.querySelector(".todo__list");
+const addButton = document.getElementById("agregar");
+const deleteAllButton = document.getElementById("borrar");
+const totalContainer = document.querySelector(".todo__total");
+const totalCounter = document.getElementById("total");
 
+//App State
 let tasks = [];
 let nextId = 1;
 
+// Event Listeners
 input.addEventListener("keyup", function (e) {
   if (e.key === "Enter") {
-    agregar.click();
-    input.value = "";
+    addButton.click();
   }
 });
 
+addButton.addEventListener("click", function () {
+  addToTasks();
+});
+
+deleteAllButton.addEventListener("click", function () {
+  clearTasks();
+});
+
+// Task management
 function addToTasks() {
-  let task = input.value;
+  let task = input.value.trim();
 
   if (task === "") {
     alert("Debes insertar una tarea..");
     return;
-  } else {
-    tasks.push({
-      tarea: task,
-      id: nextId,
-      done: false,
-      status: "new",
-    });
-    nextId++;
-    input.value = "";
   }
+
+  tasks.push({
+    title: task,
+    id: nextId,
+    done: false,
+    status: "new",
+  });
+
+  nextId++;
+  input.value = "";
   renderTasks();
   saveTasks();
 }
@@ -42,8 +54,6 @@ function removeFromTasks(id) {
   renderTasks();
   saveTasks();
 }
-
-// function total(){}
 
 function clearTasks() {
   tasks = [];
@@ -59,24 +69,27 @@ function updateTaskStatus(task, status) {
   renderTasks();
 }
 
+// Tasks rendering
 function renderTasks() {
-  listaTareas.innerHTML = "";
+  taskList.innerHTML = "";
 
   for (let i = 0; i < tasks.length; i++) {
     let task = tasks[i];
 
+    // CREATE TASK ELEMENTS
     const div = document.createElement("div");
     div.classList.add("task");
     const name = document.createElement("span");
     name.classList.add("task__title");
-    const borrarTarea = document.createElement("button");
-    borrarTarea.classList.add("task__delete-button");
-    const tareaEcha = document.createElement("button");
-    tareaEcha.classList.add("task__done-button");
-    const tareaPendiente = document.createElement("button");
-    tareaPendiente.classList.add("task__pending-button");
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("task__delete-button");
+    const doneButton = document.createElement("button");
+    doneButton.classList.add("task__done-button");
+    const pendingButton = document.createElement("button");
+    pendingButton.classList.add("task__pending-button");
 
-    name.innerText = task.tarea;
+    // SET TASK CONTENT
+    name.innerText = task.title;
     if (task.status === "new") {
       div.classList.add("task--new");
     } else if (task.status === "pending") {
@@ -85,59 +98,59 @@ function renderTasks() {
       div.classList.add("task--done");
     }
 
-    borrarTarea.innerText = "X";
-    tareaEcha.innerText = "Fait";
-    tareaPendiente.innerText = "A faire";
+    // SET BUTTON TEXT
+    deleteButton.innerText = "X";
+    doneButton.innerText = "Fait";
+    pendingButton.innerText = "A faire";
 
+    // APPEND ELEMENTS TO TASK
     div.appendChild(name);
-    div.appendChild(borrarTarea);
-    div.appendChild(tareaEcha);
-    div.appendChild(tareaPendiente);
-    if (task.status === "done") {
-      tareaPendiente.remove();
-    }
-    listaTareas.appendChild(div);
+    div.appendChild(deleteButton);
 
-    borrarTarea.addEventListener("click", function () {
+    if (task.status !== "done") {
+      div.appendChild(doneButton);
+      div.appendChild(pendingButton);
+    }
+    taskList.appendChild(div);
+
+    // TASK BUTTON EVENTS
+
+    deleteButton.addEventListener("click", function () {
       removeFromTasks(task.id);
     });
 
-    tareaEcha.addEventListener("click", function () {
+    doneButton.addEventListener("click", function () {
       updateTaskStatus(task, "done");
     });
 
-    tareaPendiente.addEventListener("click", function () {
+    pendingButton.addEventListener("click", function () {
       updateTaskStatus(task, "pending");
     });
   }
 
+  // UPDATE TASK COUNTER VISIBILITY
   if (tasks.length > 0) {
-    totalContenedor.classList.add("todo__total--visible");
+    totalContainer.classList.add("todo__total--visible");
   } else {
-    totalContenedor.classList.remove("todo__total--visible");
+    totalContainer.classList.remove("todo__total--visible");
   }
 
+  // UPDATE TASK COUNTER TEXT
   if (tasks.length === 1) {
-    totalContador.innerText = " 1 tache à faire";
+    totalCounter.innerText = " 1 tache à faire";
   } else if (tasks.length > 1) {
-    totalContador.innerText = tasks.length + " taches à faire";
+    totalCounter.innerText = tasks.length + " taches à faire";
+  } else {
+    totalCounter.innerText = "0 taches à faire";
   }
 }
-renderTasks();
 
-agregar.addEventListener("click", function () {
-  addToTasks();
-});
-
-borrar.addEventListener("click", function () {
-  clearTasks();
-});
-
+// Local Storage
 function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-function chargeTasks() {
+function loadTasks() {
   const data = localStorage.getItem("tasks");
 
   if (data) {
@@ -156,4 +169,4 @@ function chargeTasks() {
     nextId = 1;
   }
 }
-chargeTasks();
+loadTasks();
