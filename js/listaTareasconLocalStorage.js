@@ -30,7 +30,7 @@ function addToTasks() {
   let task = input.value.trim();
 
   if (task === "") {
-    alert("Debes insertar una tarea..");
+    alert("Vous devez insérer une tache..");
     return;
   }
 
