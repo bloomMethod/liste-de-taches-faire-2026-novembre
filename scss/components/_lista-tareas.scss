@@ -1,7 +1,7 @@
 @use "../abstracts/index";
 
 // contenedor de tareas
-.lista-tareas {
+.todo__list {
   margin: 20px 0px;
   width: 100%;
   max-height: 200px;
@@ -17,16 +17,9 @@
   // .grey{
   //   background-color: grey;
   // }
-  .red {
-    background-color: red;
-  }
 
-  .green {
-    background-color: green;
-  }
-
-  // Cotenedor de cada tarea
-  div {
+  // Contenedor de cada tarea
+  .task {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,7 +32,7 @@
 
     // Nombre de la tarea
 
-    span {
+    &__title {
       color: index.$color-texto;
       text-transform: uppercase;
       font-weight: bold;
@@ -47,11 +40,20 @@
       font-style: italic;
     }
 
-    button {
+    &__delete-button,
+    &__pending-button,
+    &__done-button {
       @include index.boton-estilo(rgba(117, 117, 117, 0.718));
       width: 80px;
       padding: 2px 5px;
       border-radius: 10px;
+    }
+    &--pending {
+      background-color: red;
+    }
+
+    &--done {
+      background-color: green;
     }
   }
 }

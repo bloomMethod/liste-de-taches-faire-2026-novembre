@@ -1,18 +1,20 @@
 @media (max-width: 500px) {
-  .div-content {
+  .todo {
     width: 100%;
     padding: 0px 20px;
-    .div-lista {
+    .todo__panel {
       width: 100%;
       margin-top: 120px;
-      .lista-tareas {
-        div {
+      .todo__list {
+        .task {
           padding: 20px 14px;
-          span{
+          &__title{
             width: auto;
             font-size: 12px;
           }
-          button {
+          &__delete-button,
+          &__done-button,
+          &__pending-button {
             display: inline-block;
             font-size: 12px;
             padding: 4px 10px;
@@ -20,12 +22,13 @@
           }
         }
       }
-      .botones {
-        button {
+      .todo__actions {
+        .todo__add-button,
+        .todo__delete-button{
           font-size: 10px;
           padding: 4px 5px;
         }
-        p {
+        .todo__total{
           font-size: 10px;
         }
       }

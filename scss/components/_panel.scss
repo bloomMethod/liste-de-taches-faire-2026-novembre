@@ -1,59 +1,58 @@
 @use "../abstracts/index";
 
-.div-lista {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 600px;
-      padding: 40px;
-      background-color: index.$color-panel;
-      margin-top: 50px;
-      border-radius: index.$radio-panel;
-      box-shadow: index.$sombra-panel;
+.todo__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  padding: 40px;
+  background-color: index.$color-panel;
+  margin-top: 50px;
+  border-radius: index.$radio-panel;
+  box-shadow: index.$sombra-panel;
 
-      //titulo
+  //titulo
 
-      h1 {
-        color: index.$color-texto;
-        text-align: center;
-        margin-bottom: 50px;
-      }
-
-      input {
+  .todo__actions {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    .todo__add-button,
+    .todo__delete-button {
+      @include index.boton-estilo(rgba(169, 180, 12, 0.953));
+      padding: 5px 8px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .todo__total {
+      color: index.$color-texto;
+      background-color: black;
+      padding: 5px 10px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 8px black;
+      display: none;
+      &--visible {
         display: inline-block;
-        padding: 5px;
-        width: 100%;
-        border: none;
-        border-radius: 5px;
-
-        &:focus {
-          border: 1px solid index.$color-acento;
-        }
       }
+    }
+  }
+}
 
-      
+.todo__title {
+  color: index.$color-texto;
+  text-align: center;
+  margin-bottom: 50px;
+}
 
-      .botones {
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
-        align-items: center;
-        button {
-          @include index.boton-estilo(rgba(169, 180, 12, 0.953));
-          padding: 5px 8px;
-          border-radius: 5px;
-          font-size: 16px;
-        }
-        p {
-          color: index.$color-texto;
-          background-color: black;
-          padding: 5px 10px;
-          border-radius: 5px;
-          box-shadow: 0px 0px 8px black;
-          display: none;
-          &.active {
-            display: inline-block;
-          }
-        }
-      }
+.todo__input {
+  display: inline-block;
+  padding: 5px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+
+  &:focus {
+    border: 1px solid index.$color-acento;
+  }
 }

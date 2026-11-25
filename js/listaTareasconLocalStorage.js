@@ -1,8 +1,8 @@
 const input = document.getElementById("input");
-const listaTareas = document.querySelector(".lista-tareas");
+const listaTareas = document.querySelector(".todo__list");
 const agregar = document.getElementById("agregar");
 const borrar = document.getElementById("borrar");
-const totalContenedor = document.querySelector(".total-contenedor");
+const totalContenedor = document.querySelector(".todo__total");
 const totalContador = document.getElementById("total");
 
 let tasks = [];
@@ -66,18 +66,23 @@ function renderTasks() {
     let task = tasks[i];
 
     const div = document.createElement("div");
+    div.classList.add("task");
     const name = document.createElement("span");
+    name.classList.add("task__title");
     const borrarTarea = document.createElement("button");
+    borrarTarea.classList.add("task__delete-button");
     const tareaEcha = document.createElement("button");
+    tareaEcha.classList.add("task__done-button");
     const tareaPendiente = document.createElement("button");
+    tareaPendiente.classList.add("task__pending-button");
 
     name.innerText = task.tarea;
     if (task.status === "new") {
-      div.classList.add("grey");
+      div.classList.add("task--new");
     } else if (task.status === "pending") {
-      div.classList.add("red");
+      div.classList.add("task--pending");
     } else if (task.status === "done") {
-      div.classList.add("green");
+      div.classList.add("task--done");
     }
 
     borrarTarea.innerText = "X";
@@ -107,9 +112,9 @@ function renderTasks() {
   }
 
   if (tasks.length > 0) {
-    totalContenedor.classList.add("active");
+    totalContenedor.classList.add("todo__total--visible");
   } else {
-    totalContenedor.classList.remove("active");
+    totalContenedor.classList.remove("todo__total--visible");
   }
 
   if (tasks.length === 1) {
