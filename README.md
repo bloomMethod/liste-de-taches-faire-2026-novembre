@@ -34,10 +34,11 @@ L'interface permet d'ajouter des tâches, de modifier leur état, de les supprim
 - LocalStorage : persistance des tâches dans le navigateur.
 - Node.js et npm : environnement et scripts de compilation Sass.
 
-📂 Structure du projet
+## 📂 Structure du projet
 
-Le projet est organisé de manière à séparer les différents éléments de l'application et à faciliter la maintenance du code.
+Le projet est organisé en plusieurs dossiers afin de séparer la structure HTML, les styles CSS/SCSS et la logique JavaScript. Cette organisation facilite la lecture, la maintenance et l'évolution de l'application.
 
+```text
 liste-de-taches-faire-2026-novembre/
 │
 ├── index.html
@@ -71,6 +72,37 @@ liste-de-taches-faire-2026-novembre/
 ├── package-lock.json
 ├── .gitignore
 └── README.md
+```
+
+### 📄 Description des dossiers et fichiers
+
+- **index.html** : contient la structure HTML et les éléments de l'interface utilisateur.
+
+- **css/** : contient le fichier CSS généré à partir des fichiers SCSS.
+  - `styles.css` : feuille de style compilée et utilisée par le navigateur.
+
+- **scss/** : contient les fichiers sources des styles, organisés par responsabilité.
+  - **abstracts/** : regroupe les ressources réutilisables.
+    - `_variables.scss` : définit les variables de style.
+    - `_mixins.scss` : contient les mixins Sass.
+    - `_index.scss` : centralise les ressources avec `@forward`.
+  - **base/** : contient les styles fondamentaux.
+    - `_reset.scss` : harmonise les styles par défaut du navigateur.
+    - `_base.scss` : définit les styles généraux de l'application.
+  - **components/** : regroupe les styles des composants de l'interface.
+    - `_panel.scss` : styles du panneau principal.
+    - `_lista-tareas.scss` : styles de la liste et des éléments de tâche.
+  - **layout/** : contient les règles liées à la mise en page responsive.
+    - `_responsive.scss` : adapte l'interface aux différentes tailles d'écran.
+  - `styles.scss` : fichier principal qui importe les différents fichiers SCSS avec `@use`.
+
+- **js/** : contient le code JavaScript de l'application.
+  - `listaTareasconLocalStorage.js` : gère les tâches, les événements, l'affichage dynamique et la sauvegarde des données avec LocalStorage.
+
+- **package.json** : contient les informations du projet, les dépendances et les scripts npm.
+- **package-lock.json** : conserve les versions exactes des dépendances installées.
+- **.gitignore** : indique à Git les fichiers et dossiers à ne pas suivre.
+- **README.md** : présente le projet, ses fonctionnalités, son organisation et les instructions d'installation et d'utilisation.
 
 🎨 Organisation des styles avec Sass
 
